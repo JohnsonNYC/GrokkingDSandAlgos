@@ -12,6 +12,18 @@ list.insert(4);
 // 3. when the current pointer reached the end of the list(null), the prev pointer will be pointing at the new head
 // of the reversed list;
 
-const reverseList = (head) => {};
+const reverseList = (head) => {
+  let prev = null;
+  let current = head;
+
+  while (current != null) {
+    let next = current.next; // store next node
+    current.next = prev; // reverse the link
+    prev = current; // move one step forward in the list
+    current = next; // move one step forward in the list
+  }
+
+  return prev; // prev is now pointing to the new head;
+};
 
 console.log({ list }, { reversed: reverseList(list.head) });
